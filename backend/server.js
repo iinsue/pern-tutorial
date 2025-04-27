@@ -1,8 +1,14 @@
 import express from "express";
 import helmet from "helmet";
 import morgan from "morgan";
+import cors from "cors";
 
 const app = express();
+
+// allow us to parse the incoming data
+app.use(express.json());
+
+app.use(cors());
 
 // helmet is a security middleware that helps you protect your app by setting various HTTP headers
 app.use(helmet());
