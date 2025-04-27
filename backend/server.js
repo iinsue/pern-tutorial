@@ -1,12 +1,16 @@
 import express from "express";
 import helmet from "helmet";
+import morgan from "morgan";
 
 const app = express();
 
+// helmet is a security middleware that helps you protect your app by setting various HTTP headers
 app.use(helmet());
 
-app.get("/", (req, res) => {
-  console.log(res.getHeaders());
+// morgan is log the requests to the console
+app.use(morgan("dev"));
+
+app.get("/test", (req, res) => {
   res.send("Hello from the backend!");
 });
 
