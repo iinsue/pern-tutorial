@@ -1,7 +1,19 @@
+import { Route, Routes } from "react-router-dom";
+
+import Navbar from "./components/Navbar";
+
+import HomePage from "./pages/HomePage";
+import ProductPage from "./pages/ProductPage";
+
 function App() {
   return (
-    <div>
-      <h1 className="text-2xl font-bold text-red-500">Hello</h1>
+    <div className="bg-base-200 min-h-screen transition-colors duration-300">
+      <Navbar />
+
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/product/:id" element={<ProductPage />} />
+      </Routes>
     </div>
   );
 }
