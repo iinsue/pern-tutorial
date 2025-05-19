@@ -8,7 +8,8 @@ import AddProductModal from "../components/AddProductModal";
 import { useProductStore } from "../store/useProductStore";
 
 function HomePage() {
-  const { products, loading, error, fetchProducts } = useProductStore();
+  const { products, loading, error, fetchProducts, resetForm } =
+    useProductStore();
 
   useEffect(() => {
     fetchProducts();
@@ -19,9 +20,10 @@ function HomePage() {
       <div className="mb-8 flex items-center justify-between">
         <button
           className="btn btn-primary"
-          onClick={() =>
-            document.getElementById("add_product_modal").showModal()
-          }
+          onClick={() => {
+            resetForm();
+            document.getElementById("add_product_modal").showModal();
+          }}
         >
           <PlusCircleIcon className="mr-2 size-5" />
           Add Product
