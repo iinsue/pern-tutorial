@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { PackageIcon, PlusCircleIcon, RefreshCwIcon } from "lucide-react";
 
 import ProductCard from "../components/ProductCard";
+import AddProductModal from "../components/AddProductModal";
 
 import { useProductStore } from "../store/useProductStore";
 
@@ -16,7 +17,12 @@ function HomePage() {
   return (
     <main className="mx-auto max-w-6xl px-4 py-8">
       <div className="mb-8 flex items-center justify-between">
-        <button className="btn btn-primary">
+        <button
+          className="btn btn-primary"
+          onClick={() =>
+            document.getElementById("add_product_modal").showModal()
+          }
+        >
           <PlusCircleIcon className="mr-2 size-5" />
           Add Product
         </button>
@@ -25,6 +31,9 @@ function HomePage() {
           <RefreshCwIcon className="size-5" />
         </button>
       </div>
+
+      {/* ADD PRODUCT MODAL */}
+      <AddProductModal />
 
       {error && <div className="alert alert-error mb-8">{error}</div>}
 

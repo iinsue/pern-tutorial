@@ -20,7 +20,7 @@ function ThemeSelector() {
       >
         {THEMES.map((themeOption) => (
           <button
-            key={themeOption}
+            key={themeOption.name}
             onClick={() => setTheme(themeOption.name)}
             className={`flex w-full items-center gap-3 rounded-xl px-4 py-3 transition-colors ${theme === themeOption.name ? "bg-primary/10 text-primary" : "hover:bg-base-content/5"} `}
           >
