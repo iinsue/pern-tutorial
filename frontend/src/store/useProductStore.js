@@ -3,7 +3,9 @@ import { create } from "zustand";
 import toast from "react-hot-toast";
 
 // Backend URL
-const BASE_URL = "http://localhost:3000";
+// base url will be dynamic depending on the environment
+const BASE_URL =
+  import.meta.env.MODE === "development" ? "http://localhost:3000" : "";
 
 export const useProductStore = create((set, get) => ({
   // products state
